@@ -6,16 +6,11 @@
 package testTA;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import java.util.Arrays;
 /**
  *
  * @author user
@@ -33,17 +28,66 @@ public class AlgoritmaGenetika {
             lines.add(thisLine2D.split(","));
         }
 
-        String[][] array = new String[lines.size()][0];
+        String[][] array = new String[lines.size()][0];      
         lines.toArray(array);
         
+        //INISIALISASI ARRAY
         String[][] Ships = new String[11][11];
-          
+        
+        //SPLIT ARRAY
         for (int i = 0; i<Ships.length; i++) {
                 Ships[i] = array[i+140][0].split("\\s");
-
+        }    
+        
+        //MENGUBAH DARI ARRAY STRING KE ARRAY DOOUBLE UNTUK DI SHORT
+        double [] arrival = new double[10]; 
+        for (int i = 0; i < arrival.length; i++) {
+            arrival[i]=Double.parseDouble(Ships[i+1][6]);
+        }
+        //MENGURUTKAN HASIL DARI PARSE DOUBLE
+        Arrays.sort(arrival);
+        
+        //MENCETAK ARRAY
+        for (int i = 0; i < arrival.length; i++) {
+            System.out.println("sort arrival "+arrival[i]);
         }
         
-        System.out.println(Ships[1][0]);      
+        //INISIALISASI ARRAY UNTUK SHORT BERTH BERDASARKAN ARRIVAL
+        double[] ship0 = new double[10];
+        for (int i = 0; i < ship0.length; i++) {
+            ship0[i] = Double.parseDouble(Ships[1][i+11]);
+            System.out.println("sort ship "+ship0[i]);
+        }
+        
+//        double [] berth = new double[10];
+//        for (int i = 0; i < ship0.length; i++) {
+//            berth[i]=ship0[i];
+//        }
+        
+//        for (int i = 0; i < berth.length; i++) {
+//        System.out.println("berth "+ berth[i] + " berisi ship0 sebesar " 
+//                    + ship0[i]);   
+//        }
+
+        int index = -1;
+        double buffer = 12;
+        
+        for (int i = 0; i < ship0.length; i++) {
+            if (ship0[i]!=0){
+                if(ship0[i]<buffer){
+                    buffer=ship0[i];
+                    index=i+1;
+                }
+            }
+        }
+        
+        
+        System.out.println("index "+index);
+//        Arrays.sort(ship0);
+//        
+//        for (int i = 0; i < ship0.length; i++) {
+//            System.out.println("sort ship "+ship0[i]);
+//        }
     }
 }
 
