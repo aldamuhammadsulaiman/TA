@@ -15,7 +15,7 @@ import java.util.Arrays;
  *
  * @author user
  */
-public class AlgoritmaGenetika {
+public class AlgoritmaGenetika  {
     public static void main(String[] args) throws FileNotFoundException,
             IOException{
         String thisLine2D;
@@ -40,6 +40,9 @@ public class AlgoritmaGenetika {
         }    
         
         //MENGUBAH DARI ARRAY STRING KE ARRAY DOOUBLE UNTUK DI SHORT
+        
+        double a;
+        double b;
         double [] arrival = new double[10]; 
         for (int i = 0; i < arrival.length; i++) {
             arrival[i]=Double.parseDouble(Ships[i+1][6]);
@@ -59,35 +62,23 @@ public class AlgoritmaGenetika {
             System.out.println("sort ship "+ship0[i]);
         }
         
-//        double [] berth = new double[10];
-//        for (int i = 0; i < ship0.length; i++) {
-//            berth[i]=ship0[i];
-//        }
+        SortingMultiCriteria [] sortingMultiCriteria = 
+                new SortingMultiCriteria[0];
         
-//        for (int i = 0; i < berth.length; i++) {
-//        System.out.println("berth "+ berth[i] + " berisi ship0 sebesar " 
-//                    + ship0[i]);   
-//        }
+        SortingMultiCriteria [] abc = 
+                new SortingMultiCriteria[10];;
 
-        int index = -1;
-        double buffer = 12;
         
         for (int i = 0; i < ship0.length; i++) {
-            if (ship0[i]!=0){
-                if(ship0[i]<buffer){
-                    buffer=ship0[i];
-                    index=i+1;
-                }
-            }
+            abc[i]= new SortingMultiCriteria(ship0[i], arrival[i]);
         }
         
-        
-        System.out.println("index "+index);
-//        Arrays.sort(ship0);
-//        
-//        for (int i = 0; i < ship0.length; i++) {
-//            System.out.println("sort ship "+ship0[i]);
-//        }
+        int i=0;
+        for(SortingMultiCriteria temp: abc){
+           System.out.println("fruits " + ++i + " : " + temp.getArrivalTime()+ 
+                ", Quantity : " + temp.getHandlingTime());
+        }
+
     }
 }
 
