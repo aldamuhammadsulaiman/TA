@@ -80,6 +80,9 @@ public class AlgoritmaGenetika implements Comparator<SortingMultiCriteria>{
                 ", Quantity : " + temp.getHandlingTime());
         }
         
+        AlgoritmaGenetika d = new AlgoritmaGenetika();
+        System.out.println(d.compare(abc[0], abc[2]));
+        
     }
     
     
@@ -95,7 +98,6 @@ public class AlgoritmaGenetika implements Comparator<SortingMultiCriteria>{
             }
         }
         return value1;
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
 
