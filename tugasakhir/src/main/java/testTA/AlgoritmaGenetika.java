@@ -11,11 +11,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 /**
  *
  * @author user
  */
-public class AlgoritmaGenetika  {
+public class AlgoritmaGenetika implements Comparator<SortingMultiCriteria>{
     public static void main(String[] args) throws FileNotFoundException,
             IOException{
         String thisLine2D;
@@ -79,6 +80,22 @@ public class AlgoritmaGenetika  {
                 ", Quantity : " + temp.getHandlingTime());
         }
 
+    }
+    
+    
+    @Override
+    public int compare(SortingMultiCriteria o1, SortingMultiCriteria o2) {
+        int value1 = o1.arrivalTime.compareTo(o2.handlingTime);
+        if (value1 == 0) {
+            int value2 = o1.arrivalTime.compareTo(o2.arrivalTime);
+            if (value2 == 0) {
+                return o1.handlingTime.compareTo(o2.handlingTime);
+            } else {
+                return value2;
+            }
+        }
+        return value1;
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
 
