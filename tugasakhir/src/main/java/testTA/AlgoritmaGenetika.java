@@ -79,7 +79,7 @@ public class AlgoritmaGenetika implements Comparator<SortingMultiCriteria>{
            System.out.println("fruits " + ++i + " : " + temp.getArrivalTime()+ 
                 ", Quantity : " + temp.getHandlingTime());
         }
-
+        
     }
     
     
