@@ -13,13 +13,15 @@ import java.util.Comparator;
  */
 public class Langkah1 implements Comparator<Langkah1>{
     int port;
+    int number;
     Integer arrivalTime;
     Integer handlingTime;
     /**
      * @return the arrivalTime
      */
     
-    public Langkah1(Integer arrivalTime, Integer handlingTime, int port){
+    public Langkah1(Integer arrivalTime, Integer handlingTime, int port, int number){
+        this.number = number;
         this.port = port;
         this.arrivalTime = arrivalTime;
         this.handlingTime = handlingTime;
